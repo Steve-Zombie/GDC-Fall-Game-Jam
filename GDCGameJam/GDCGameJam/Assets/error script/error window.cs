@@ -15,18 +15,18 @@ public class errorwindow : MonoBehaviour
     public float startTime = 5f;
     public Transform myCanvas;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //Creates clone objects on load
     void Start()
     {
-        
         clones = new GameObject[7];
         for(int i = 0; i < 7; i++){
             clones[i] = Instantiate(mother);
             clones[i].transform.SetParent(myCanvas.transform);
-            clones[i].transform.position = new Vector3(Random.Range(-70f,700f),Random.Range(-60f,370f),0f);
+            clones[i].transform.position = new Vector3(Random.Range(50f,570f),Random.Range(-60f,370f),0f);
         }
     }
 
-    // Update is called once per frame
+    //Checks and displays popup count, starts timer if count is 0
     void Update()
     {
         if (popUps > 0){
@@ -48,7 +48,7 @@ public class errorwindow : MonoBehaviour
             }
         }
     }
-
+    //Removes popup from count
     public void removePopup(){
         popUps--;
         Debug.Log("Button has been clicked.");
